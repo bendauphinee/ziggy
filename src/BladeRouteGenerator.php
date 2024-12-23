@@ -9,7 +9,7 @@ class BladeRouteGenerator
 {
     public static $generated;
 
-    public function generate($group = null, ?string $nonce = null): string
+    public function generate(?array $group = null, ?string $nonce = null): string
     {
         $ziggy = new Ziggy($group);
 
@@ -28,10 +28,10 @@ class BladeRouteGenerator
         return (string) new $output($ziggy, $routeFunction, $nonce);
     }
 
-    private function generateMergeJavascript(Ziggy $ziggy, string $nonce)
+    private function generateMergeJavascript(Ziggy $ziggy, string $nonce): string
     {
         $output = config('ziggy.output.merge_script', MergeScript::class);
-
+dd($output);
         return new $output($ziggy, $nonce);
     }
 }
