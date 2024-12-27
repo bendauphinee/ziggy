@@ -31,7 +31,7 @@ class BladeRouteGenerator
     private function generateMergeJavascript(Ziggy $ziggy, string $nonce): string
     {
         $output = config('ziggy.output.merge_script', MergeScript::class);
-dd($output);
+
         return new $output($ziggy, $nonce);
     }
 }
